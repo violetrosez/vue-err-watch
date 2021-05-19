@@ -1,17 +1,30 @@
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div></div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+  created() {
+    this.catchError();
+  },
+  methods: {
+    errFunc() {
+      // eslint-disable-next-line no-undef
+      error;
+    },
+    catchError() {
+      try {
+        this.errFunc();
+      } catch (error) {
+        console.log(error);
+      }
+      // throw new Error("ERROR");
+    },
+  },
+};
 </script>
 
 <style>
