@@ -12,15 +12,19 @@ export default {
   },
   methods: {
     errFunc() {
-      // eslint-disable-next-line no-undef
-      error;
+      return new Promise((resolve) => {
+        // eslint-disable-next-line no-undef
+        resolve();
+      });
     },
     catchError() {
-      try {
-        this.errFunc();
-      } catch (error) {
-        console.log(error);
-      }
+      this.errFunc();
+      // eslint-disable-next-line no-undef
+      error;
+      // try {
+      // } catch (error) {
+      //   console.log(error);
+      // }
       // throw new Error("ERROR");
     },
   },
