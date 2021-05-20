@@ -14,6 +14,7 @@ export default {
     errFunc() {
       return new Promise((resolve) => {
         // eslint-disable-next-line no-undef
+        abc
         resolve();
       });
     },

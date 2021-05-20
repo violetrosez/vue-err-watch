@@ -7,15 +7,7 @@ module.exports = {
   publicPath: "",
   outputDir: "dist",
   productionSourceMap: true,
-  devServer: {
-    // 环境配置
-    host: "0.0.0.0",
-    port: 8080,
-    https: false,
-    hotOnly: false,
-    open: true,
-    proxy: {},
-  },
+
   configureWebpack: {
     resolve: {
       alias: {
@@ -28,6 +20,5 @@ module.exports = {
       }),
     ],
   },
-
   //   chainWebpack: (config) => {},
 };

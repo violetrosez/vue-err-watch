@@ -18,5 +18,6 @@ window.addEventListener("unhandledrejection", (e) => {
 // 框架异常统一捕获
 app.config.errorHandler = function(err, vm, info) {
   console.log(err, vm, info);
+  
 };
 app.mount("#app");
