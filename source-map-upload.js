@@ -17,6 +17,7 @@ class SourceMapUploader {
       let map_file = chunks.filter((item) => {
         return item.match(/\.js\.map$/) !== null;
       });
+
       // 上传sourcemap
       while (map_file.length > 0) {
         let file = map_file.shift();
