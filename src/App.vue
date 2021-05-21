@@ -1,31 +1,26 @@
 
 <template>
-  <div></div>
+  <div>
+    <vis-page></vis-page>
+  </div>
 </template>
 
 <script>
+import VisPage from "@/components/vis-page.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    VisPage,
+  },
   created() {
-    this.catchError();
+    this.errFunc();
   },
   methods: {
     errFunc() {
+      // abc;
       return new Promise((resolve) => {
-        // eslint-disable-next-line no-undef
         resolve();
       });
-    },
-    catchError() {
-      this.errFunc();
-      // eslint-disable-next-line no-undef
-      error;
-      // try {
-      // } catch (error) {
-      //   console.log(error);
-      // }
-      // throw new Error("ERROR");
     },
   },
 };
@@ -38,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
