@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     errFunc() {
-      // abc;
+      abc;
       return new Promise((resolve) => {
         resolve();
       });

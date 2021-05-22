@@ -3,13 +3,11 @@ import App from "./App.vue";
 
 import ElementPlus from "element-plus";
 import "element-plus/lib/theme-chalk/index.css";
-let app = createApp(App);
-app.use(ElementPlus);
+
 
 window.addEventListener(
   "error",
   (e) => {
-    console.log(e);
     uploadErr(e);
     return true;
   },
@@ -19,12 +17,21 @@ window.addEventListener(
 window.addEventListener("unhandledrejection", (e) => {
   throw e.reason;
 });
+
+let app = createApp(App);
+app.use(ElementPlus);
 // 框架异常统一捕获
-// app.config.errorHandler = function(err, vm, info) {
-//   console.log(err.stack);
-// };
+app.config.errorHandler = function(err) {
+  console.error(err);
+};
+
+
+
 // 错误上报
 function uploadErr({ lineno, colno, error: { stack }, message, filename }) {
+
+  let userAgent = navigator.userAgent; //浏览器信息
+  let date = new Date().toLocaleDateString();
   let str = window.btoa(
     JSON.stringify({
       lineno,
@@ -32,6 +39,8 @@ function uploadErr({ lineno, colno, error: { stack }, message, filename }) {
       stack,
       message,
       filename,
+      userAgent,
+      date
     })
   );
   let front_ip = "http://localhost:3000/error";
